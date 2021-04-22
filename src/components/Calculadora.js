@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import thousands from "thousands";
 
 export const Calculadora = props => {
-  const { cuota, cantidad, pagado, entrega } = props;
+  const { cuota, cantidad, pagado } = props;
   const precioTotal = cuota * cantidad;
   const precioContado = precioTotal / 2;
   const comisionTotal = precioContado * 0.015;
