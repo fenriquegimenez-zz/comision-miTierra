@@ -34,17 +34,27 @@ export const Calculadora = props => {
   }
 
   return (
-    <div>
-      <ul>
-        <li>El precio total del terreno es: {thousands(precioTotal)}</li>
-        <li>El precio contado del terreno es: {thousands(precioContado)}</li>
-        <li>La comisión total es: {thousands(comisionTotal)}</li>
-        <li>La comisión mensual es: {thousands(comisionMensual)}</li>
-        <li>La comisión restante es: {thousands(comisionRestante)}</li>
-      </ul>
-      <p className="text-danger">
-        * Obs: La parte con la entrega no está terminada
-      </p>
-    </div>
+    <>
+      <div className="d-flex justify-content-center text-center">
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Precio total</th>
+              <th scope="col">Precio contado</th>
+              <th scope="col">Comisión total</th>
+              <th scope="col">Comisión mensual</th>
+              <th scope="col">Comisión restante</th>
+            </tr>
+          </thead>
+          <tr>
+            <td>{thousands(precioTotal)}</td>
+            <td>{thousands(precioContado)}</td>
+            <td>{thousands(comisionTotal)}</td>
+            <td>{thousands(comisionMensual)}</td>
+            <td>{thousands(comisionRestante)}</td>
+          </tr>
+        </table>
+      </div>
+    </>
   );
 };

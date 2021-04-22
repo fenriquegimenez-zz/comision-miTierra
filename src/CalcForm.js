@@ -22,9 +22,6 @@ export const CalcForm = () => {
   function handleEntrega(event) {
     setEntrega(event.target.value);
   }
-  function handleButtonSubmit() {
-    window.location.reload();
-  }
   return (
     <div className="container">
       <form onSubmit={handleFormSubmit} className="input-group mb-3">
@@ -59,16 +56,6 @@ export const CalcForm = () => {
             onChange={handleEntrega}
             className="form-control"
           />
-        </div>
-        <div className="text-center">
-          <button
-            onClick={handleButtonSubmit}
-            type="submit"
-            className="btn btn-danger text-center"
-            disabled={cuota < 1}
-          >
-            Reset
-          </button>
         </div>
       </form>
 
