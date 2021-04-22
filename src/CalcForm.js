@@ -65,17 +65,21 @@ export const CalcForm = () => {
             onClick={handleButtonSubmit}
             type="submit"
             className="btn btn-danger text-center"
+            disabled={cuota < 1}
           >
             Reset
           </button>
         </div>
       </form>
-      <Calculadora
-        cuota={cuota}
-        cantidad={cantidad}
-        pagado={pagado}
-        entrega={entrega}
-      ></Calculadora>
+
+      {cuota ? (
+        <Calculadora
+          cuota={cuota}
+          cantidad={cantidad}
+          pagado={pagado}
+          entrega={entrega}
+        ></Calculadora>
+      ) : null}
     </div>
   );
 };
