@@ -18,6 +18,7 @@ export const Calculadora = props => {
         <li>La comisión mensual es: {thousands(comisionMensual)}</li>
         <li>La comisión restante es: {thousands(comisionRestante)}</li>
       </ul>
+      <p className="text-danger">* La parte con la entrega no está terminada</p>
     </div>
   );
 };
