@@ -25,30 +25,38 @@ export const CalcForm = () => {
   return (
     <div className="container">
       <form onSubmit={handleFormSubmit} className="input-group mb-3">
-        <input
-          type="number"
-          placeholder="Monto cuota"
-          onChange={handleMontoCuota}
-          className="form-control"
-        />
-        <input
-          type="number"
-          placeholder="Cantidad de cuotas"
-          onChange={handleCantidadCuota}
-          className="form-control"
-        />
-        <input
-          type="number"
-          placeholder="Cuotas pagadas"
-          onChange={handleCuotasPagadas}
-          className="form-control"
-        />
-        <input
-          type="number"
-          placeholder="Entrega"
-          onChange={handleEntrega}
-          className="form-control"
-        />
+        <div className="input-group mb-3">
+          <input
+            type="number"
+            placeholder="Monto cuota"
+            onChange={handleMontoCuota}
+            className="form-control"
+          />
+        </div>
+        <div className="input-group mb-3">
+          <input
+            type="number"
+            placeholder="Cantidad de cuotas"
+            onChange={handleCantidadCuota}
+            className="form-control"
+          />
+        </div>
+        <div className="input-group mb-3">
+          <input
+            type="number"
+            placeholder="Cuotas pagadas"
+            onChange={handleCuotasPagadas}
+            className="form-control"
+          />
+        </div>
+        <div className="input-group mb-3">
+          <input
+            type="number"
+            placeholder="Entrega"
+            onChange={handleEntrega}
+            className="form-control"
+          />
+        </div>
       </form>
       <Calculadora
         cuota={cuota}

@@ -1,13 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import thousands from "thousands";
 
 export const Calculadora = props => {
   const { cuota, cantidad, pagado } = props;
-  const precioTotal = cuota * cantidad;
-  const precioContado = precioTotal / 2;
-  const comisionTotal = precioContado * 0.015;
-  const comisionMensual = cuota * 0.2;
-  const comisionRestante = comisionTotal - comisionMensual * pagado;
+  const [comisionRestante, setComisionRestante] = useState(0);
+  const [precioTotal, setPrecioTotal] = useState(0);
+  const [comisionMensual, setComisionMensual] = useState(0);
+  const [comisionTotal, setComisionTotal] = useState(0);
+  const [precioContado, setPrecioContado] = useState(0);
+
+  useEffect(() => {
+    setPrecioTotal(cuota * cantidad);
+  }, [cantidad, cuota]);
+
+  useEffect(() => {
+    setComisionTotal(precioContado * 0.015);
+  }, [precioContado]);
+
+  useEffect(() => {
+    setPrecioContado(precioTotal / 2);
+  }, [precioTotal]);
+
+  useEffect(() => {
+    setComisionMensual(cuota * 0.2);
+  }, [cuota]);
+
+  useEffect(() => {
+    setComisionRestante(comisionTotal - comisionMensual * pagado);
+  }, [comisionMensual, comisionRestante, comisionTotal, pagado]);
+
+  if (comisionRestante < 0) {
+    setComisionRestante(0);
+  }
 
   return (
     <div>
