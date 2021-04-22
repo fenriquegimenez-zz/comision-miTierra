@@ -23,7 +23,7 @@ export const CalcForm = () => {
     setEntrega(event.target.value);
   }
   function handleButtonSubmit() {
-    window.location.reload(false);
+    window.location.reload();
   }
   return (
     <div className="container">
