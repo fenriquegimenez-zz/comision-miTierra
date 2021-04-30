@@ -3,6 +3,7 @@ import ReloadButton from "./components/ReloadButton.jsx";
 import { Obs } from "./components/Obs.jsx";
 import clsx from "clsx";
 import { useState } from "react";
+import { Github } from "./components/Github";
 
 function App() {
   const [isDark, setDark] = useState(false);
@@ -49,6 +50,7 @@ function App() {
       <CalcForm theme={isDark}></CalcForm>
       <Obs />
       <ReloadButton />
+      <Github dark={isDark} />
     </div>
   );
 }
