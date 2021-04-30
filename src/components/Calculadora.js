@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import thousands from "thousands";
+import clsx from "clsx";
 
 export const Calculadora = props => {
   const { cuota, cantidad, pagado } = props;
@@ -8,6 +9,12 @@ export const Calculadora = props => {
   const [comisionMensual, setComisionMensual] = useState(0);
   const [comisionTotal, setComisionTotal] = useState(0);
   const [precioContado, setPrecioContado] = useState(0);
+
+  const classes = clsx({
+    table: true,
+    "table-bordered": true,
+    "table-dark": props.theme,
+  });
 
   useEffect(() => {
     setPrecioTotal(cuota * cantidad);
@@ -36,7 +43,7 @@ export const Calculadora = props => {
   return (
     <>
       <div className="d-flex justify-content-center text-center">
-        <table className="table table-bordered">
+        <table className={classes}>
           <thead>
             <tr>
               <th scope="col">Precio total</th>

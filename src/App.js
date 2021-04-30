@@ -1,26 +1,54 @@
 import { CalcForm } from "./CalcForm";
+import ReloadButton from "./components/ReloadButton.jsx";
+import { Obs } from "./components/Obs.jsx";
+import clsx from "clsx";
+import { useState } from "react";
 
 function App() {
+  const [isDark, setDark] = useState(false);
+  function setDarkMode() {
+    if (isDark) {
+      setDark(false);
+    } else {
+      setDark(true);
+    }
+  }
   return (
-    <div className="container">
-      <h1 className="text-center mt-3">Calculadora de comisión inmobiliaria</h1>
+    <div
+      className={clsx({
+        "container-fluid": true,
+        "bg-dark": isDark,
+        "text-light": isDark,
+        "text-center": true,
+        "vh-100": true,
+      })}
+    >
+      <h1
+        className={clsx({
+          "text-center": true,
+          "pt-3": true,
+        })}
+      >
+        Calculadora de comisión inmobiliaria
+      </h1>
       <p className="text-center">
         Por favor ingrese el monto y la cantidad de cuotas totales y ya pagadas.
       </p>
-      <CalcForm></CalcForm>
-      <small className="ml-2">
-        Cálculo realizado en base a una comisión de 20% sobre la entrega y 1.5%
-        sobre el precio contado.
-      </small>
-      <div className="d-flex justify-content-center">
-        <button
-          onClick={() => window.location.reload()}
-          type="submit"
-          className="btn btn-danger text-center mt-5"
-        >
-          Reset
-        </button>
-      </div>
+      <button
+        type="button"
+        className={clsx({
+          btn: true,
+          "btn-dark": !isDark,
+          "btn-light": isDark,
+          "mb-3": true,
+        })}
+        onClick={setDarkMode}
+      >
+        {isDark ? "Ligth mode" : "Dark mode"}
+      </button>
+      <CalcForm theme={isDark}></CalcForm>
+      <Obs />
+      <ReloadButton />
     </div>
   );
 }
