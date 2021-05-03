@@ -1,4 +1,3 @@
-import React from "react";
 import light from "../images/GitHub-Mark-Light-32px.png";
 import dark from "../images/GitHub-Mark-32px.png";
 

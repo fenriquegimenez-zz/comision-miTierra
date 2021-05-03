@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Calculadora } from "./components/Calculadora";
+import { useState } from "react";
 import clsx from "clsx";
+
+import { Calculadora } from "./components/Calculadora";
 
 export const CalcForm = props => {
   const [cantidad, setCantidad] = useState(0);

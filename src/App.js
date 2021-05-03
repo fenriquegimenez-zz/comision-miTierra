@@ -1,8 +1,9 @@
+import { useState } from "react";
+import clsx from "clsx";
+
 import { CalcForm } from "./CalcForm";
 import ReloadButton from "./components/ReloadButton.jsx";
 import { Obs } from "./components/Obs.jsx";
-import clsx from "clsx";
-import { useState } from "react";
 import { Github } from "./components/Github";
 
 function App() {
