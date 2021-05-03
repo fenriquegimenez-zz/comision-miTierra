@@ -53,7 +53,7 @@ function App() {
         })}
         onClick={setDarkMode}
       >
-        {isDark ? "Ligth mode" : "Dark mode"}
+        {isDark ? "Modo claro" : "Modo oscuro"}
       </button>
       <CalcForm theme={isDark}></CalcForm>
       <Obs />
