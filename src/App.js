@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import clsx from "clsx";
 
 import { CalcForm } from "./CalcForm";
@@ -7,7 +7,10 @@ import { Obs } from "./components/Obs.jsx";
 import { Github } from "./components/Github";
 
 function App() {
-  const [isDark, setDark] = useState(false);
+  const [isDark, setDark] = useState(
+    () => localStorage.getItem("theme") === "true"
+  );
+
   function setDarkMode() {
     if (isDark) {
       setDark(false);
@@ -15,6 +18,10 @@ function App() {
       setDark(true);
     }
   }
+  useEffect(() => {
+    localStorage.setItem("theme", isDark);
+  }, [isDark]);
+
   return (
     <div
       className={clsx({
